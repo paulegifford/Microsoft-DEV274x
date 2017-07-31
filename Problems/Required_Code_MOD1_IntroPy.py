@@ -4,3 +4,4 @@ def words():
     for ltr in quote:
         if ltr.isalpha():
             word = word + ltr
+            #incomplete
