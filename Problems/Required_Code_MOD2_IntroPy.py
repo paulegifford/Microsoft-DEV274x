@@ -8,6 +8,10 @@ This program takes string input and checks if that string is in a list of string
   -if the list becomes empty the program ends
   -if the user enters "quit" then the program ends
 
+Program has 2 parts:
+  -program flow which can be modified to ask for a specific type of item. This is the programmers choice. Add a list of fish, trees, books, movies, songs.... your choice.
+  -list-o-matic Function which takes arguments of a string and a list. The function modifies the list and returns a message as seen below.
+
 """
 alist = ["dog", "cat", "monkey", "rhino"]
 
