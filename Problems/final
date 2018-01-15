@@ -1,0 +1,52 @@
+def get_names():
+    names = []
+    count = 1
+    message = ""
+    while count < 6 :
+        message = input("enter the name of an element : ")
+        if message == "":
+            pass
+        elif message in names:
+            print(message,"was already entered <-- no duplicates allowed")
+        else:
+            names.append(message)
+            count = count + 1
+    return names
+elements_list = []
+correct = []
+incorrect = []
+temp1 = 0
+temp2 = 0
+count = 0
+response = ""
+names_list = [] #list returned from get_names
+#! curl https://raw.githubusercontent.com/MicrosoftLearning/intropython/master/elements1_20.txt -o elements1_20.txt
+elements_file = open('elements1_20.txt','r')
+element = elements_file.readline()
+while element :
+    element = element.lower()
+    elements_list.append(element)
+    element = elements_file.readline()
+elements_file.close()
+# strip out newlines from element list
+total = len(elements_list)
+temp = 0
+while temp < total - 1:
+    for element in elements_list:
+        elements_list[temp] = element[:-1]
+        temp += 1
+    elements_list[19] = element
+names_list = get_names()
+
+for count in range(5):
+    response = names_list[count]
+    if response in elements_list:
+        correct.append(response)
+    else:
+        incorrect.append(response)
+temp1 = len(correct)   #number of correct responses
+temp2 = temp1 * 20
+print()
+print(temp2,"% correct")
+print("Found : ",correct)
+print("Not Found : ",incorrect)
